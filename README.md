@@ -1,6 +1,13 @@
 # marquee
+[![pub package](https://img.shields.io/pub/v/marquee_flutter.svg)](https://pub.dartlang.org/packages/marquee_flutter)
+
+一个用ListView做的跑马灯，可以垂直方向滚动，也可以水平方向滚动
 
 A Marquee widght with ListView,Can scroll vertically or horizontally
+
+HomePage：[https://github.com/baoolong/MarqueeWidget](https://github.com/baoolong/MarqueeWidget)
+
+MoreWidght：[https://github.com/OpenFlutter/PullToRefresh](https://github.com/OpenFlutter/PullToRefresh)
 
 <img width="38%" height="38%" src="https://raw.githubusercontent.com/baoolong/PullToRefresh/master/demonstrationgif/20180814_142220.gif"/>
 
@@ -9,7 +16,7 @@ A Marquee widght with ListView,Can scroll vertically or horizontally
 Add this to your package's pubspec.yaml file:
 
 	dependencies:
-	  marquee_flutter: ^0.0.1
+	  marquee_flutter: ^0.0.2
 	  
 Add it to your dart file:
 
