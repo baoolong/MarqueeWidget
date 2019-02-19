@@ -1,9 +1,9 @@
 # marquee
 [![pub package](https://img.shields.io/pub/v/marquee_flutter.svg)](https://pub.dartlang.org/packages/marquee_flutter)
 
-一个用ListView做的跑马灯，可以垂直方向滚动，也可以水平方向滚动
+一个用ListView做的跑马灯，可以垂直方向滚动，也可以水平方向滚动。由于ListView回撑满空间，所以在水平滚动时，必须设置高度，垂直滚动时，必须设置宽度
 
-A Marquee widght with ListView,Can scroll vertically or horizontally
+A Marquee widght with ListView,Can scroll vertically or horizontally.The ListView will fill up the space, the height must be set when scrolling horizontally, and the width must be set when scrolling vertically.
 
 HomePage：[https://github.com/baoolong/MarqueeWidget](https://github.com/baoolong/MarqueeWidget)
 
@@ -16,7 +16,7 @@ MoreWidght：[https://github.com/OpenFlutter/PullToRefresh](https://github.com/O
 Add this to your package's pubspec.yaml file:
 
 	dependencies:
-	  marquee_flutter: ^0.0.2
+	  marquee_flutter: ^0.1.3
 	  
 Add it to your dart file:
 
@@ -32,26 +32,32 @@ Add it to your dart file:
       @override
       Widget build(BuildContext context) {
         return new Scaffold(
-          appBar: new AppBar(
-            title: new Text("跑马灯"),
-          ),
-          body:new MarqueeWidget(
-            text: "ListView即滚动列表控件，能将子控件组成可滚动的列表。当你需要排列的子控件超出容器大小",
-            textStyle: new TextStyle(fontSize: 16.0),
-            scrollAxis: Axis.vertical,
-          )
+            appBar: new AppBar(
+              title: new Text("跑马灯"),
+            ),
+            body:new Container(
+              color: Colors.blueGrey,
+              height: 30,
+              child: new MarqueeWidget(
+                text: "ListView即滚动列表控件，能将子控件组成可滚动的列表。当你需要排列的子控件超出容器大小",
+                textStyle: new TextStyle(fontSize: 16.0),
+                scrollAxis: Axis.horizontal,
+              ),
+            )
         );
       }
     }
 
 ## Notice
 
-No Notice
+由于ListView回撑满空间，所以在水平滚动时，必须设置高度，垂直滚动时，必须设置宽度
+
+The ListView will fill up the space, the height must be set when scrolling horizontally, and the width must be set when scrolling vertically.
 
 ## LICENSE
     MIT License
 
-	Copyright (c) 2018 Jpeng
+	Copyright (c) 2018 baoolong
 	
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
