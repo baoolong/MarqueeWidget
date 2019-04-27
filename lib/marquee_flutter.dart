@@ -60,7 +60,6 @@ class MarqueeWidgetState extends State<MarqueeWidget> with SingleTickerProviderS
         }else{
           position=(maxScrollExtent-screenHeight*widget.ratioOfBlankToScreen+widgetHeight)/2-widgetHeight+pixels-maxScrollExtent;
         }
-        print(position);
         scroController.jumpTo(position);
       }
       position+=_moveDistance;

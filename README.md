@@ -16,7 +16,7 @@ MoreWidght：[https://github.com/OpenFlutter/PullToRefresh](https://github.com/O
 Add this to your package's pubspec.yaml file:
 
 	dependencies:
-	  marquee_flutter: ^0.1.3
+	  marquee_flutter: ^0.1.4
 	  
 Add it to your dart file:
 
