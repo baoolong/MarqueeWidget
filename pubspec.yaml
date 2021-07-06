@@ -1,6 +1,6 @@
 name: marquee_flutter
 description: A Marquee widght with ListView,Can scroll vertically or horizontally
-version: 0.1.4
+version: 1.0.0
 author: baoolong <baoolong1987@gmail.com>
 homepage: https://github.com/baoolong/MarqueeWidget
 
