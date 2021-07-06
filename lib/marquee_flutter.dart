@@ -6,18 +6,18 @@ import 'package:flutter/material.dart';
 class MarqueeWidget extends StatefulWidget{
 
   final String text;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
   ///滚动方向，水平或者垂直
   final Axis scrollAxis;
   ///空白部分占控件的百分比
   final double ratioOfBlankToScreen;
 
   MarqueeWidget({
-    @required this.text,
+    required this.text,
     this.textStyle,
     this.scrollAxis:Axis.horizontal,
     this.ratioOfBlankToScreen:0.25,
-  }) :assert(text!=null,);
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -27,11 +27,11 @@ class MarqueeWidget extends StatefulWidget{
 
 class MarqueeWidgetState extends State<MarqueeWidget> with SingleTickerProviderStateMixin{
 
-  ScrollController scroController;
-  double screenWidth;
-  double screenHeight;
+  ScrollController? scroController;
+  late double screenWidth;
+  late double screenHeight;
   double position=0.0;
-  Timer timer;
+  late Timer timer;
   final double _moveDistance=3.0;
   final int _timerRest=100;
   GlobalKey _key=GlobalKey();
@@ -41,18 +41,18 @@ class MarqueeWidgetState extends State<MarqueeWidget> with SingleTickerProviderS
   void initState() {
     super.initState();
     scroController=new ScrollController();
-    WidgetsBinding.instance.addPostFrameCallback((callback){
+    WidgetsBinding.instance!.addPostFrameCallback((callback){
       startTimer();
     });
   }
 
   void startTimer(){
-    double widgetWidth = _key.currentContext.findRenderObject().paintBounds.size.width;
-    double widgetHeight = _key.currentContext.findRenderObject().paintBounds.size.height;
+    double widgetWidth = _key.currentContext!.findRenderObject()!.paintBounds.size.width;
+    double widgetHeight = _key.currentContext!.findRenderObject()!.paintBounds.size.height;
 
     timer=Timer.periodic(new Duration(milliseconds: _timerRest), (timer){
-      double maxScrollExtent=scroController.position.maxScrollExtent;
-      double pixels=scroController.position.pixels;
+      double maxScrollExtent=scroController!.position.maxScrollExtent;
+      double pixels=scroController!.position.pixels;
       if(pixels+_moveDistance>=maxScrollExtent){
         if(widget.scrollAxis==Axis.horizontal){
           //TODO 我也看不懂怎么算的
@@ -60,10 +60,10 @@ class MarqueeWidgetState extends State<MarqueeWidget> with SingleTickerProviderS
         }else{
           position=(maxScrollExtent-screenHeight*widget.ratioOfBlankToScreen+widgetHeight)/2-widgetHeight+pixels-maxScrollExtent;
         }
-        scroController.jumpTo(position);
+        scroController!.jumpTo(position);
       }
       position+=_moveDistance;
-      scroController.animateTo(position,duration: new Duration(milliseconds: _timerRest),curve: Curves.linear);
+      scroController!.animateTo(position,duration: new Duration(milliseconds: _timerRest),curve: Curves.linear);
     });
   }
 
